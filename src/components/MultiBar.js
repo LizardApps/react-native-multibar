@@ -49,7 +49,13 @@ const MultiBar = ({ style, navigation, activeTintColor, inactiveTintColor, rende
                 focused={focused}
                 activeTintColor={activeTintColor}
                 inactiveTintColor={inactiveTintColor}
-                onPress={() => (!route.params || !route.params.navigationDisabled) && jumpTo(route.key)}
+                onPress={() => {
+                  if (route.params && route.params.onPress) {
+                    route.params.onPress(navigation);
+                  } else if (!route.params || !route.params.navigationDisabled) {
+                    jumpTo(route.key);
+                  }
+                }}
               />
             );
           }
