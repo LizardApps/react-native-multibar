@@ -18,7 +18,7 @@ export const TabIcon = ({ route, renderIcon, focused, activeTintColor, inactiveT
         ? activeTintColor
         : inactiveTintColor
     })}
-    {route.params && (
+    {route.params && route.params.label && (
       <Text
         style={[Styles.labelStyle, { color: focused ? activeTintColor : inactiveTintColor }]}>{route.params.label}</Text>
     )}
