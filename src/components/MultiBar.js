@@ -58,6 +58,8 @@ const MultiBar = ({ style, navigation, activeTintColor, inactiveTintColor, rende
                 }}
               />
             );
+          } else if (route.params.hidden) {
+            return null;
           }
 
           const Icon = renderIcon({
